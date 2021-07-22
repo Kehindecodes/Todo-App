@@ -59,6 +59,14 @@ export const ListContainer = styled.div`
 	text-align: center;
 	justify-content: center;
 	margin-top: 2rem;
+	margin-left: 20rem;
+	& > div:nth-of-type(1) {
+		border-top-left-radius: 7px;
+		border-top-right-radius: 7px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+
 	// margin-left: 50%;
 	// margin-right: 50%;
 `;
@@ -70,11 +78,13 @@ export const ListItem = styled.div`
 	padding: 25px;
 	background: #fff;
 	align-items: center;
-	// border-radius: 7px;
+
 	border: none;
 	border-bottom: 1px solid hsl(233, 11%, 84%);
-    border-top-left-radius:7px
-    border-top-right-radius:7px
-    border-bottom-left-radius:0px
-    border-bottom-right-radius:0px
+	box-shadow: 2px 4px 10px hsl(236, 33%, 92%);
+	color: hsl(235, 19%, 35%);
+	font-size: 18px;
+	p {
+		margin-top: 5px;
+	}
 `;

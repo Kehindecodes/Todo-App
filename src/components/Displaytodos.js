@@ -20,7 +20,7 @@ const Displaytodos = () => {
 					todos.map((todo) => (
 						<ListItem>
 							<CheckBox></CheckBox>
-							{todo}
+							<p>{todo}</p>
 						</ListItem>
 					)),
 				)}
