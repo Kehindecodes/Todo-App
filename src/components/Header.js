@@ -1,5 +1,6 @@
 import React from 'react';
 import iconsun from '../asserts/images/iconsun.svg';
+import Displaytodos from './Displaytodos';
 import { HeaderContainer } from './styles';
 import TodoInput from './TodoInput';
 const Header = () => {
@@ -11,7 +12,8 @@ const Header = () => {
 					<img src={iconsun} alt='icon' />
 				</div>
 			</div>
-			<TodoInput />
+			{/* <TodoInput /> */}
+			<Displaytodos />
 		</HeaderContainer>
 	);
 };
