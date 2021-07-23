@@ -60,6 +60,7 @@ export const ListContainer = styled.div`
 	justify-content: center;
 	margin-top: 2rem;
 	margin-left: 20rem;
+
 	& > div:nth-of-type(1) {
 		border-top-left-radius: 7px;
 		border-top-right-radius: 7px;
@@ -78,6 +79,7 @@ export const ListItem = styled.div`
 	padding: 25px;
 	background: #fff;
 	align-items: center;
+	position: relative;
 
 	border: none;
 	border-bottom: 1px solid hsl(233, 11%, 84%);
@@ -87,4 +89,10 @@ export const ListItem = styled.div`
 	p {
 		margin-top: 5px;
 	}
+`;
+export const CancelButton = styled.img`
+	width: 12px;
+	position: absolute;
+	right: 25px;
+	cursor: pointer;
 `;

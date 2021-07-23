@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { CheckBox, ListContainer, ListItem } from './styles';
+import { CancelButton, CheckBox, ListContainer, ListItem } from './styles';
+import iconcross from '../asserts/images/iconcross.svg';
 import TodosContext from '../context/todos/todosContext';
 const Displaytodos = () => {
 	const todosContext = useContext(TodosContext);
-	const { todos, removeTodos, toggleCompleted } = todosContext;
+	const { todos, removeTodo, toggleCompleted } = todosContext;
 	return (
 		<>
 			<ListContainer>
@@ -11,6 +12,13 @@ const Displaytodos = () => {
 					<ListItem key={todo.id}>
 						<CheckBox></CheckBox>
 						<p>{todo.todo}</p>
+						<span>
+							<CancelButton
+								src={iconcross}
+								alt='cross'
+								onClick={() => removeTodo(todo.id)}
+							/>
+						</span>
 					</ListItem>
 				))}
 			</ListContainer>
