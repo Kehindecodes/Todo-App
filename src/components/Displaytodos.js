@@ -1,29 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { CheckBox, ListContainer, ListItem } from './styles';
-import TodoInput from './TodoInput';
-
+import TodosContext from '../context/todos/todosContext';
 const Displaytodos = () => {
-	const [todos, setTodos] = useState([]);
-	const handlekeyDown = (e) => {
-		if (e.keyCode === 13) {
-			e.preventDefault();
-			let input = e.target.value;
-			setTodos(todos.concat(input));
-			console.log(todos);
-		}
-	};
+	const todosContext = useContext(TodosContext);
+	const { todos, removeTodos, toggleCompleted } = todosContext;
 	return (
 		<>
-			<TodoInput handlekeyDown={handlekeyDown} />
 			<ListContainer>
-				{React.Children.toArray(
-					todos.map((todo) => (
-						<ListItem>
-							<CheckBox></CheckBox>
-							<p>{todo}</p>
-						</ListItem>
-					)),
-				)}
+				{todos.map((todo) => (
+					<ListItem key={todo.id}>
+						<CheckBox></CheckBox>
+						<p>{todo.todo}</p>
+					</ListItem>
+				))}
 			</ListContainer>
 		</>
 	);

@@ -4,10 +4,10 @@ import TodoReducer from './todoReducer';
 import { ADD_TODO, REMOVE_TODO, TOGGLE_COMPLETED } from '../types';
 
 const TodosState = (props) => {
-	const intialState = {
+	const initialState = {
 		todos: [],
 	};
-	const [state, dispatch] = useReducer(TodoReducer, intialState);
+	const [state, dispatch] = useReducer(TodoReducer, initialState);
 	// add new todo
 	const addTodo = (value) => {
 		dispatch({
@@ -29,7 +29,7 @@ const TodosState = (props) => {
 	};
 	return (
 		<TodosContext.Provider
-			value={{ todo: state.todo, removeTodo, addTodo, toggleCompleted }}>
+			value={{ todos: state.todos, removeTodo, addTodo, toggleCompleted }}>
 			{props.children}
 		</TodosContext.Provider>
 	);

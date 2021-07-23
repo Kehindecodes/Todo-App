@@ -5,7 +5,7 @@ export default (state, action) => {
 		case ADD_TODO:
 			return {
 				todos: [
-					...state,
+					...state.todos,
 					{
 						todo: action.payload,
 						id: new Date().valueOf(),

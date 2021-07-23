@@ -12,7 +12,7 @@ const Header = () => {
 					<img src={iconsun} alt='icon' />
 				</div>
 			</div>
-			{/* <TodoInput /> */}
+			<TodoInput />
 			<Displaytodos />
 		</HeaderContainer>
 	);
