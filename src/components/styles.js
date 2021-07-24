@@ -71,10 +71,17 @@ export const ListContainer = styled.div`
 	// margin-left: 50%;
 	// margin-right: 50%;
 `;
+export const CancelButton = styled.img`
+	width: 12px;
+	position: absolute;
+	right: 25px;
+	visibility: hidden;
+	cursor: pointer;
+`;
 export const ListItem = styled.div`
 	background: hsl(0, 0%, 98%);
 	display: flex;
-	width: 570px;
+	width: 590px;
 	height: 40px;
 	padding: 25px;
 	background: #fff;
@@ -86,13 +93,11 @@ export const ListItem = styled.div`
 	box-shadow: 2px 4px 10px hsl(236, 33%, 92%);
 	color: hsl(235, 19%, 35%);
 	font-size: 18px;
+	&:hover ${CancelButton} {
+		cursor: pointer;
+		visibility: visible;
+	}
 	p {
 		margin-top: 5px;
 	}
-`;
-export const CancelButton = styled.img`
-	width: 12px;
-	position: absolute;
-	right: 25px;
-	cursor: pointer;
 `;
