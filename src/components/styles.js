@@ -53,6 +53,12 @@ export const CheckBox = styled.div`
 	background: #fff;
 	margin-right: 0.7rem;
 `;
+export const TodoCheckBox = styled(CheckBox)`
+	background-image: ${(props) =>
+		props.completed === true
+			? 'linear-gradient( to right top, #57ddff,#00c9ff,#03afff,#7a8cff,#c058f3);'
+			: ''};
+`;
 export const ListContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -87,14 +93,17 @@ export const ListItem = styled.div`
 	background: #fff;
 	align-items: center;
 	position: relative;
+	text-decoration: ${(props) =>
+		props.completed === true ? 'line-through' : ''};
 
 	border: none;
 	border-bottom: 1px solid hsl(233, 11%, 84%);
 	box-shadow: 2px 4px 10px hsl(236, 33%, 92%);
-	color: hsl(235, 19%, 35%);
 	font-size: 18px;
+	cursor: pointer;
+	color: ${(props) =>
+		props.completed === true ? '#E4E5F1' : 'hsl(235, 19%, 35%)'};
 	&:hover ${CancelButton} {
-		cursor: pointer;
 		visibility: visible;
 	}
 	p {

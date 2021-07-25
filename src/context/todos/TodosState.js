@@ -1,4 +1,4 @@
-import React, { Children, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import TodosContext from './todosContext';
 import TodoReducer from './todoReducer';
 import { ADD_TODO, REMOVE_TODO, TOGGLE_COMPLETED } from '../types';
@@ -21,15 +21,16 @@ const TodosState = (props) => {
 			payload: todoId,
 		});
 	};
-	const toggleCompleted = (todoId) => {
+	const markAsCompleted = (todoId) => {
 		dispatch({
 			type: TOGGLE_COMPLETED,
 			payload: todoId,
 		});
 	};
+
 	return (
 		<TodosContext.Provider
-			value={{ todos: state.todos, removeTodo, addTodo, toggleCompleted }}>
+			value={{ todos: state.todos, removeTodo, addTodo, markAsCompleted }}>
 			{props.children}
 		</TodosContext.Provider>
 	);

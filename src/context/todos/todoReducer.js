@@ -28,6 +28,7 @@ export default (state, action) => {
 					? { ...todo, completed: !todo.completed }
 					: todo,
 			);
+			console.log(completedList);
 			return {
 				todos: completedList,
 			};
