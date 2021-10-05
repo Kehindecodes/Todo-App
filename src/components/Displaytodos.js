@@ -10,56 +10,44 @@ import iconcross from '../asserts/images/iconcross.svg';
 import iconcheck from '../asserts/images/iconcheck.svg';
 import TodosContext from '../context/todos/todosContext';
 import Buttons from './Buttons';
+import AllTodos from './AllTodos';
+import ActiveTodos from './ActiveTodos';
+import CompletedTodos from './CompletedTodo';
 const Displaytodos = () => {
 	const todosContext = useContext(TodosContext);
 
 	const { todos, removeTodo, markAsCompleted } = todosContext;
-	const [todoItem, setTodoItem] = useState(todos);
-
+	// const [todoItem, setTodoItem] = useState(todos);
+	const [filteredTodo, setFilteredTodo] = useState(todos);
+	const [activeTab, setActiveTab] = useState('all');
+	console.log(filteredTodo);
 	console.log(todos);
+	// console.log(todoItem);
 	// show the total of uncompeleted task
+	useEffect(() => {
+		setFilteredTodo(todos);
+	}, []);
 	const total = todos.filter((todo) => todo.completed === false);
 	// show both completed and active tasks
 	const showAllTask = () => {
-		const allTask = todos;
-		console.log(allTask);
-		setTodoItem(allTask);
+		setActiveTab('all');
 	};
 	// show only active task
 	const showActive = () => {
-		const active = todoItem.filter((todo) => todo.completed === false);
-		setTodoItem(active);
-		console.log(active);
+		setActiveTab('active');
 	};
 	// show only completed task
 	const completedTask = () => {
-		const completedTasks = todoItem.filter((todo) => todo.completed === true);
-		console.log(completedTasks);
-		setTodoItem(completedTasks);
+		setActiveTab('completed');
 	};
 	console.log(total.length);
 
 	return (
 		<>
 			<ListContainer>
-				{todoItem.map((todo) => (
-					<ListItem
-						key={todo.id}
-						onClick={() => markAsCompleted(todo.id)}
-						completed={todo.completed}>
-						<TodoCheckBox completed={todo.completed}>
-							<img src={iconcheck} alt='check' />
-						</TodoCheckBox>
-						<p>{todo.todo}</p>
-						<span>
-							<CancelButton
-								src={iconcross}
-								alt='cross'
-								onClick={() => removeTodo(todo.id)}
-							/>
-						</span>
-					</ListItem>
-				))}
+				{activeTab === 'all' ? <AllTodos /> : ''}
+				{activeTab === 'active' ? <ActiveTodos /> : ''}
+				{activeTab === 'completed' ? <CompletedTodos /> : ''}
 				<TabsWrapper>
 					<p>{total.length} items lefts </p>
 					<Buttons

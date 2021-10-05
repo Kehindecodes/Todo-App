@@ -10,10 +10,10 @@ const TodoInput = () => {
 			e.preventDefault();
 			addTodo(inputValue);
 			setInputValue('');
+
 			console.log(todos);
 		}
 	};
-
 	return (
 		<FormContainer>
 			<Form>

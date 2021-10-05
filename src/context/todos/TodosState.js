@@ -27,10 +27,30 @@ const TodosState = (props) => {
 			payload: todoId,
 		});
 	};
+	// const activeTodo = () => {
+	// 	dispatch({
+	// 		type: ACTIVE_TODO,
+	// 	});
+	// };
+	// const completedTodo = () => {
+	// 	dispatch({
+	// 		type: COMPLETED_TODO,
+	// 	});
+	// };
+	// const showAll = () => {
+	// 	dispatch({
+	// 		type: SHOW_ALL,
+	// 	});
+	// };
 
 	return (
 		<TodosContext.Provider
-			value={{ todos: state.todos, removeTodo, addTodo, markAsCompleted }}>
+			value={{
+				todos: state.todos,
+				removeTodo,
+				addTodo,
+				markAsCompleted,
+			}}>
 			{props.children}
 		</TodosContext.Provider>
 	);

@@ -52,6 +52,9 @@ export const CheckBox = styled.div`
 	border: 1px solid #ccc;
 	background: #fff;
 	margin-right: 0.7rem;
+	&:hover {
+		border: 1px solid hsl(220, 98%, 61%);
+	}
 `;
 export const TodoCheckBox = styled(CheckBox)`
 	background-image: ${(props) =>
@@ -66,6 +69,8 @@ export const ListContainer = styled.div`
 	justify-content: center;
 	margin-top: 2rem;
 	margin-left: 20rem;
+	box-shadow: 2px 4px 10px hsl(236, 33%, 92%);
+	width: 590px;
 
 	& > div:nth-of-type(1) {
 		border-top-left-radius: 7px;
@@ -73,9 +78,12 @@ export const ListContainer = styled.div`
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 0px;
 	}
-
-	// margin-left: 50%;
-	// margin-right: 50%;
+	// & > div:last-child {
+	// 	border-top-left-radius: 0;
+	// 	border-top-right-radius: 0;
+	// 	border-bottom-left-radius: 17px;
+	// 	border-bottom-right-radius: 17px;
+	// }
 `;
 export const CancelButton = styled.img`
 	width: 12px;
@@ -87,7 +95,7 @@ export const CancelButton = styled.img`
 export const ListItem = styled.div`
 	background: hsl(0, 0%, 98%);
 	display: flex;
-	width: 590px;
+	width: 100%;
 	height: 40px;
 	padding: 25px;
 	background: #fff;
@@ -98,7 +106,7 @@ export const ListItem = styled.div`
 
 	border: none;
 	border-bottom: 1px solid hsl(233, 11%, 84%);
-	box-shadow: 2px 4px 10px hsl(236, 33%, 92%);
+
 	font-size: 18px;
 	cursor: pointer;
 	color: ${(props) =>
@@ -110,3 +118,56 @@ export const ListItem = styled.div`
 		margin-top: 5px;
 	}
 `;
+export const TabsWrapper = styled.div`
+	// background: hsl(0, 0%, 98%);
+	display: flex;
+	width: 100%;
+	height: 40px;
+	padding: 25px;
+	background: #fff;
+	align-items: center;
+	color: hsl(236, 9%, 61%);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 17px;
+	border-bottom-right-radius: 17px;
+`;
+export const ButtonWrapper = styled.div`
+	margin-left: 5rem;
+	margin-right: 5rem;
+`;
+export const Button = styled.button`
+	font-family: inherit;
+	border: none;
+	margin-left: 1rem;
+	color: hsl(236, 9%, 61%);
+	background: transparent;
+	cursor: pointer;
+	&:hover {
+		color: hsl(235, 19%, 35%);
+	}
+
+	${({ active }) =>
+		active &&
+		`color:#5A94F4
+	`}
+`;
+// export const AllButton = styled(button)`
+// 	font-family: inherit;
+// 	border: 0;
+// `;
+// export const ActiveButton = styled(button)`
+// 	font-family: inherit;
+// 	border: 0;
+// 	margin-left: 1rem;
+// `;
+// export const CompletedButton = styled(button)`
+// 	font-family: inherit;
+// 	border: 0;
+// 	margin-left: 1rem;
+// `;
+// export const ClearButton = styled(button)`
+// 	font-family: inherit;
+// 	border: 0;
+// 	margin-left: 1rem;
+// `;

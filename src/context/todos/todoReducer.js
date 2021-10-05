@@ -1,4 +1,11 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_COMPLETED } from '../types';
+import {
+	ADD_TODO,
+	REMOVE_TODO,
+	TOGGLE_COMPLETED,
+	ACTIVE_TODO,
+	COMPLETED_TODO,
+	SHOW_ALL,
+} from '../types';
 
 export default (state, action) => {
 	switch (action.type) {
@@ -10,7 +17,6 @@ export default (state, action) => {
 						todo: action.payload,
 						id: new Date().valueOf(),
 						completed: false,
-						active: true,
 					},
 				],
 			};
@@ -28,12 +34,32 @@ export default (state, action) => {
 					? { ...todo, completed: !todo.completed }
 					: todo,
 			);
-			console.log(completedList);
 			return {
+				...state,
 				todos: completedList,
 			};
 		}
+		// case ACTIVE_TODO: {
+		// 	// const total = ;
+		// 	// console.log(total);
+		// 	return {
+		// 		...state,
+		// 		todos: state.todos.filter((todo) => todo.completed === false),
+		// 	};
+		// }
+		// case COMPLETED_TODO: {
+		// 	// const completedTasks = ,
+		// 	// );
 
+		// 	return state.todos.filter((todo) => todo.completed === true);
+		// }
+
+		// case SHOW_ALL: {
+		// 	return {
+		// 		...state,
+		// 		todos: state.todos,
+		// 	};
+		// }
 		default:
 			return state;
 	}
