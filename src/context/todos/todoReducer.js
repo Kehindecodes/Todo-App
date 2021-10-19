@@ -2,12 +2,10 @@ import {
 	ADD_TODO,
 	REMOVE_TODO,
 	TOGGLE_COMPLETED,
-	ACTIVE_TODO,
-	COMPLETED_TODO,
-	SHOW_ALL,
+	CLEAR_COMPLETED,
 } from '../types';
 
-export default (state, action) => {
+const reducer = (state, action) => {
 	switch (action.type) {
 		case ADD_TODO:
 			return {
@@ -39,28 +37,19 @@ export default (state, action) => {
 				todos: completedList,
 			};
 		}
-		// case ACTIVE_TODO: {
-		// 	// const total = ;
-		// 	// console.log(total);
-		// 	return {
-		// 		...state,
-		// 		todos: state.todos.filter((todo) => todo.completed === false),
-		// 	};
-		// }
-		// case COMPLETED_TODO: {
-		// 	// const completedTasks = ,
-		// 	// );
+		case CLEAR_COMPLETED: {
+			const clearedTodos = state.todos.filter(
+				(todo) => todo.completed === false,
+			);
 
-		// 	return state.todos.filter((todo) => todo.completed === true);
-		// }
-
-		// case SHOW_ALL: {
-		// 	return {
-		// 		...state,
-		// 		todos: state.todos,
-		// 	};
-		// }
+			return {
+				...state,
+				todos: clearedTodos,
+			};
+		}
 		default:
 			return state;
 	}
 };
+
+export default reducer;

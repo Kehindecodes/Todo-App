@@ -1,13 +1,18 @@
 import React, { useReducer } from 'react';
 import TodosContext from './todosContext';
-import TodoReducer from './todoReducer';
-import { ADD_TODO, REMOVE_TODO, TOGGLE_COMPLETED } from '../types';
+import reducer from './todoReducer';
+import {
+	ADD_TODO,
+	REMOVE_TODO,
+	TOGGLE_COMPLETED,
+	CLEAR_COMPLETED,
+} from '../types';
 
 const TodosState = (props) => {
 	const initialState = {
 		todos: [],
 	};
-	const [state, dispatch] = useReducer(TodoReducer, initialState);
+	const [state, dispatch] = useReducer(reducer, initialState);
 	// add new todo
 	const addTodo = (value) => {
 		dispatch({
@@ -27,21 +32,11 @@ const TodosState = (props) => {
 			payload: todoId,
 		});
 	};
-	// const activeTodo = () => {
-	// 	dispatch({
-	// 		type: ACTIVE_TODO,
-	// 	});
-	// };
-	// const completedTodo = () => {
-	// 	dispatch({
-	// 		type: COMPLETED_TODO,
-	// 	});
-	// };
-	// const showAll = () => {
-	// 	dispatch({
-	// 		type: SHOW_ALL,
-	// 	});
-	// };
+	const clearCompletedTask = () => {
+		dispatch({
+			type: CLEAR_COMPLETED,
+		});
+	};
 
 	return (
 		<TodosContext.Provider
@@ -50,6 +45,7 @@ const TodosState = (props) => {
 				removeTodo,
 				addTodo,
 				markAsCompleted,
+				clearCompletedTask,
 			}}>
 			{props.children}
 		</TodosContext.Provider>
