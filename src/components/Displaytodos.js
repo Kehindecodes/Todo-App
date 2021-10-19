@@ -5,6 +5,7 @@ import {
 	ListContainer,
 	ListItem,
 	TabsWrapper,
+	Button,
 } from './styles';
 import iconcross from '../asserts/images/iconcross.svg';
 import iconcheck from '../asserts/images/iconcheck.svg';
@@ -27,6 +28,7 @@ const Displaytodos = () => {
 	useEffect(() => {
 		setFilteredTodo(todos);
 	}, []);
+
 	const total = todos.filter((todo) => todo.completed === false);
 	// show both completed and active tasks
 	const showAllTask = () => {
@@ -40,8 +42,9 @@ const Displaytodos = () => {
 	const completedTask = () => {
 		setActiveTab('completed');
 	};
-	console.log(total.length);
-
+	const clearCompletedTask = () => {
+		setActiveTab('');
+	};
 	return (
 		<>
 			<ListContainer>
@@ -54,7 +57,9 @@ const Displaytodos = () => {
 						showAll={showAllTask}
 						activeTodo={showActive}
 						completedTodo={completedTask}
+						activeTab={activeTab}
 					/>
+					<Button onClick={() => clearCompletedTask()}>Clear Completed</Button>
 				</TabsWrapper>
 			</ListContainer>
 		</>

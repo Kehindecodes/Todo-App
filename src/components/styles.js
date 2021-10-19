@@ -146,11 +146,15 @@ export const Button = styled.button`
 	&:hover {
 		color: hsl(235, 19%, 35%);
 	}
-
-	${({ active }) =>
-		active &&
-		`color:#5A94F4
-	`}
+	color: ${(props) =>
+		props.active === true ? '#5a94f4' : 'hsl(235, 19%, 35%)'};
+`;
+export const Message = styled.div`
+	background: #fff;
+	height: 5rem;
+	padding: 3rem;
+	border-bottom: 1px solid hsl(233, 11%, 84%);
+	color: hsl(235, 19%, 35%);
 `;
 // export const AllButton = styled(button)`
 // 	font-family: inherit;
