@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import TodosContext from '../context/todos/todosContext';
-import { CancelButton, TodoCheckBox, ListItem, Message } from './styles';
+import { CancelButton, TodoCheckBox, ListItem, Message, Check } from './styles';
 import iconcross from '../asserts/images/iconcross.svg';
 import iconcheck from '../asserts/images/iconcheck.svg';
 const AllTodos = () => {
@@ -8,7 +8,7 @@ const AllTodos = () => {
 	const { todos, removeTodo, markAsCompleted } = todosContext;
 
 	return (
-		<div>
+		<>
 			{todos.length === 0 ? (
 				<Message>
 					<h3>You have nothing todo</h3>
@@ -20,7 +20,7 @@ const AllTodos = () => {
 						onClick={() => markAsCompleted(todo.id)}
 						completed={todo.completed}>
 						<TodoCheckBox completed={todo.completed}>
-							<img src={iconcheck} alt='check' />
+							<Check src={iconcheck} completed={todo.completed} alt='check' />
 						</TodoCheckBox>
 						<p>{todo.todo}</p>
 						<span>
@@ -33,7 +33,7 @@ const AllTodos = () => {
 					</ListItem>
 				))
 			)}
-		</div>
+		</>
 	);
 };
 

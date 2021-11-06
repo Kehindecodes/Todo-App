@@ -1,19 +1,15 @@
 import React from 'react';
-import iconsun from '../asserts/images/iconsun.svg';
-import Displaytodos from './Displaytodos';
 import { HeaderContainer } from './styles';
 import TodoInput from './TodoInput';
-const Header = () => {
+import Toggle from './Toggler';
+const Header = ({ theme, themeToggler }) => {
 	return (
 		<HeaderContainer>
 			<div>
 				<h1>TODO</h1>
-				<div className='icon'>
-					<img src={iconsun} alt='icon' />
-				</div>
+				<Toggle theme={theme} toggleTheme={themeToggler} />
 			</div>
 			<TodoInput />
-			<Displaytodos />
 		</HeaderContainer>
 	);
 };

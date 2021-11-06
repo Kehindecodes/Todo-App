@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { ListContainer, TabsWrapper, Button } from './styles';
+import { ListContainer, TabsWrapper, Button, Main } from './styles';
 import TodosContext from '../context/todos/todosContext';
 import Buttons from './Buttons';
 import AllTodos from './AllTodos';
@@ -13,8 +13,8 @@ const Displaytodos = () => {
 	const [filteredTodo, setFilteredTodo] = useState(todos);
 	const [activeTab, setActiveTab] = useState('all');
 
-	console.log(filteredTodo);
-	console.log(todos);
+	// console.log(filteredTodo);
+	// console.log(todos);
 	// console.log(todoItem);
 	// show the total of uncompeleted task
 	useEffect(() => {
@@ -38,7 +38,7 @@ const Displaytodos = () => {
 	// 	setDoneTask([]);
 	// };
 	return (
-		<>
+		<Main>
 			<ListContainer>
 				{activeTab === 'all' ? <AllTodos /> : ''}
 				{activeTab === 'active' ? <ActiveTodos /> : ''}
@@ -54,7 +54,7 @@ const Displaytodos = () => {
 					<Button onClick={() => clearCompletedTask()}>Clear Completed</Button>
 				</TabsWrapper>
 			</ListContainer>
-		</>
+		</Main>
 	);
 };
 
