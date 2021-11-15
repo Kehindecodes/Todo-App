@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import TodosContext from './todosContext';
 import reducer from './todoReducer';
 import {
@@ -12,7 +12,20 @@ const TodosState = (props) => {
 	const initialState = {
 		todos: [],
 	};
-	const [state, dispatch] = useReducer(reducer, initialState);
+	const getStorageValue = (defaultValue) => {
+		// getting stored value
+		const saved = window.localStorage.getItem('task');
+		const initial = JSON.parse(saved);
+		return initial || defaultValue;
+	};
+
+	const [state, dispatch] = useReducer(reducer, initialState, getStorageValue);
+
+	useEffect(() => {
+		// storing input name
+		window.localStorage.setItem('task', JSON.stringify(state));
+	}, [state]);
+
 	// add new todo
 	const addTodo = (value) => {
 		dispatch({

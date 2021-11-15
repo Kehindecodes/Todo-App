@@ -3,7 +3,7 @@ import './app.css';
 import Displaytodos from './components/Displaytodos';
 import Header from './components/Header';
 import { AppWrapper } from '../src/components/styles';
-import { useDarkMode } from './components/useDarkmode';
+import { useDarkMode } from './custom-hooks/useDarkmode';
 import TodosState from './context/todos/TodosState';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './components/GlobalStyle';

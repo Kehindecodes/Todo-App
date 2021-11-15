@@ -5,21 +5,22 @@ import Buttons from './Buttons';
 import AllTodos from './AllTodos';
 import ActiveTodos from './ActiveTodos';
 import CompletedTodos from './CompletedTodo';
+
 const Displaytodos = () => {
 	const todosContext = useContext(TodosContext);
 
 	const { todos, clearCompletedTask } = todosContext;
 	// const [todoItem, setTodoItem] = useState(todos);
-	const [filteredTodo, setFilteredTodo] = useState(todos);
+	// const [filteredTodo, setFilteredTodo] = useState(todos);
 	const [activeTab, setActiveTab] = useState('all');
 
 	// console.log(filteredTodo);
 	// console.log(todos);
 	// console.log(todoItem);
 	// show the total of uncompeleted task
-	useEffect(() => {
-		setFilteredTodo(todos);
-	}, []);
+	// useEffect(() => {
+	// 	setFilteredTodo(todos);
+	// }, []);
 
 	const total = todos.filter((todo) => todo.completed === false);
 	// show both completed and active tasks

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, ButtonWrapper } from './styles';
 
 const Buttons = ({ showAll, activeTodo, completedTodo, activeTab }) => {
-	const [active, setActive] = useState(true);
+	// const [active, setActive] = useState(true);
 	// useEffect(() => {
 	// 	setActive(true);
 	// }, []);

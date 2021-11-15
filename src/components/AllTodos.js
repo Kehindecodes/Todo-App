@@ -3,10 +3,13 @@ import TodosContext from '../context/todos/todosContext';
 import { CancelButton, TodoCheckBox, ListItem, Message, Check } from './styles';
 import iconcross from '../asserts/images/iconcross.svg';
 import iconcheck from '../asserts/images/iconcheck.svg';
+// import { useLocalStorage } from '../custom-hooks/useLocalStorage';
+import { useLocalStorage } from '../custom-hooks/useLocalStorage2';
 const AllTodos = () => {
 	const todosContext = useContext(TodosContext);
 	const { todos, removeTodo, markAsCompleted } = todosContext;
-
+	// const [task, setTask] = useLocalStorage('todo', todos);
+	// console.log(task);
 	return (
 		<>
 			{todos.length === 0 ? (

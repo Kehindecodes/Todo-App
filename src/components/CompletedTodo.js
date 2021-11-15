@@ -3,7 +3,7 @@ import TodosContext from '../context/todos/todosContext';
 import { CancelButton, TodoCheckBox, ListItem, Message, Check } from './styles';
 import iconcross from '../asserts/images/iconcross.svg';
 import iconcheck from '../asserts/images/iconcheck.svg';
-const CompletedTodos = ({}) => {
+const CompletedTodos = () => {
 	const todosContext = useContext(TodosContext);
 	const { todos, removeTodo, markAsCompleted } = todosContext;
 	const completedTodos = todos.filter((todo) => todo.completed === true);

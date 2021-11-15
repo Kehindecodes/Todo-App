@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgdesktoplight from '../asserts/images/bgdesktoplight.jpg';
+
 export const AppWrapper = styled.div`
 	background: ${({ theme }) => theme.background};
 	height: 100vh;
